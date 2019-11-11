@@ -15,13 +15,21 @@ export default <cx>
                 <h1>Todo List</h1>
 
                 <div preserveWhitespace>
-                    <TextField style={{width: "280px"}}
-                               autoFocus
-                               value:bind="$page.text"
-                               placeholder="Type a task name here"
-                    />
+                    <TextField id="txtfield" 
+                            style={{width: "280px"}}
+                            autoFocus
+                            value:bind="$page.text"
+                            placeholder="Type a task name here"
+                            onKeyDown={(e, { controller }) => {
+                                if (e.keyCode == 13) {
+                                    controller.onAdd();
+                                    }
+                                }}
+                        />
                     <Button type="button" onClick="onAdd" disabled:expr="!{$page.text}">Add</Button>
                 </div>
+                
+                
 
                 <ul class="csb-task-list">
                     <Repeater records:bind="$page.todos">
