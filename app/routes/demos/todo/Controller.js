@@ -33,7 +33,11 @@ export default class extends Controller {
 
         var items = this.store.get("$page.todos");
         for(var i in items){
+<<<<<<< HEAD
             if(this.store.get('$page.text').trim().toLowerCase() === items[i].text.trim().toLowerCase()){
+=======
+            if(this.store.get('$page.text').toLowerCase() === items[i].text.toLowerCase()){
+>>>>>>> 71cbbe86456f5947d7ea4da3815d3c4de2c8e3bd
                 Toast.create(toastconfig.errorToast("Todo already exists!")).open();
                 return;
             }
